@@ -1,0 +1,57 @@
+<div *ngIf="!isEmployeeLoggedIn && !isAdminLoggedIn">
+  <mat-toolbar color="primary" class="navbar">
+    <span class="navbar-brand">Task Management System</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/signup" routerLinkActive="active" (click)="hideWelcomeMessage()">Register</button>
+    <button mat-button routerLink="/login" routerLinkActive="active" (click)="hideWelcomeMessage()">Login</button>
+  </mat-toolbar>
+</div>
+
+<div *ngIf="showWelcomeMessage && !isEmployeeLoggedIn && !isAdminLoggedIn" class="welcome-message">
+  <div class="welcome-message-container">
+    <div class="hero">
+      <h1 class="welcome-message-title">Task Management System</h1>
+      <p class="welcome-message-subtitle">Streamline your workflow and boost productivity</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <i class="fas fa-tasks"></i>
+        <h2>Task Management</h2>
+        <p>Create, assign, and track tasks with ease</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-calendar-alt"></i>
+        <h2>Scheduling</h2>
+        <p>Set deadlines, reminders, and recurring tasks</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-users"></i>
+        <h2>Collaboration</h2>
+        <p>Work with team members, assign tasks, and track progress</p>
+      </div>
+    </div>
+    <div class="button-container">
+      <button mat-button routerLink="/signup" routerLinkActive="active" (click)="hideWelcomeMessage()">Get Started</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isAdminLoggedIn">
+  <mat-toolbar color="primary" class="navbar">
+    <span class="navbar-brand">Admin</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</button>
+    <button mat-button routerLink="/admin/task" routerLinkActive="active">Create New Task</button>
+    <button mat-button (click)="logout()" routerLinkActive="active">Logout</button>
+  </mat-toolbar>
+</div>
+
+<div *ngIf="isEmployeeLoggedIn">
+  <mat-toolbar color="primary" class="navbar">
+    <span class="navbar-brand">Employee</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/employee/dashboard" routerLinkActive="active">Dashboard</button>
+    <button mat-button (click)="logout()" routerLinkActive="active">Logout</button>
+  </mat-toolbar>
+</div>
+<router-outlet></router-outlet>

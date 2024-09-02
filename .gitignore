@@ -1,0 +1,10 @@
+# Backend
+/backend/target/
+/backend/.classpath
+/backend/.project
+/backend/.settings/
+/backend/.mvn/
+
+# Frontend
+/frontend/node_modules/
+/frontend/dist/
